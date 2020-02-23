@@ -11,6 +11,7 @@ const httpsOptions = {
 };
 const compression = require('compression');
 const rootRoute = require('./routes/root.js');
+const axios = require('axios');
 
 app.use(compression());
 
