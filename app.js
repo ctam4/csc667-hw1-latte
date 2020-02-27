@@ -16,6 +16,7 @@ const axios = require('axios');
 app.use(compression());
 
 app.use('/', rootRoute);
+app.use('/jason1819', require('./routes/jason1819'));
 
 http.createServer(app).listen(httpPort);
 https.createServer(httpsOptions, app).listen(httpsPort);
