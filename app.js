@@ -16,6 +16,7 @@ const axios = require('axios');
 app.use(compression());
 
 app.use('/', rootRoute);
+app.use('/ctam4', require('./routes/ctam4'));
 
 http.createServer(app).listen(httpPort);
 https.createServer(httpsOptions, app).listen(httpsPort);
