@@ -14,6 +14,10 @@ const rootRoute = require('./routes/root.js');
 const axios = require('axios');
 
 app.use(compression());
+app.use((req,res,next)=>{
+  console.log(req.originalUrl);
+  next()
+})
 
 app.use('/', rootRoute);
 app.use('/bdiaz666',require('./routes/bdiaz666'))
