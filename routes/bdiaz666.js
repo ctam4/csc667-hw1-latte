@@ -8,7 +8,11 @@ router.get("/weather", async (req, res) => {
   let status, response;
   let data;
 
-  if (Object.keys(params).length == 1 && params.hasOwnProperty("city")) {
+  if (
+    Object.keys(params).length == 1 &&
+    params.hasOwnProperty("city") &&
+    params.city != ""
+  ) {
     let weather = await axios
       .get(
         "http://api.openweathermap.org/data/2.5/weather?q=" +
@@ -28,6 +32,14 @@ router.get("/weather", async (req, res) => {
       date: new Date(),
       params: params,
       response: data
+    };
+    res.send(returnObject);
+  } else {
+    const returnObject = {
+      status: "Error",
+      date: new Date(),
+      params: "NULL",
+      response: "No city value entered"
     };
     res.send(returnObject);
   }
