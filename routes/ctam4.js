@@ -7,7 +7,7 @@ router.get('/crypto-price', async (req, res) => {
   const params = req.query;
   let status, response;
   // validate params
-  if (Object.keys(params).length == 1 && params.hasOwnProperty('symbol')) {
+  if (Object.keys(params).length == 1 && params.hasOwnProperty('symbol') && params.symbol.length > 0) {
       // continue to call API
       let coin = await axios.get('https://api.coinpaprika.com/v1/coins')
                             .then((res) => {
