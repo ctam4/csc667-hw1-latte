@@ -2,7 +2,7 @@
 version: "3"
 
 services:
-  node:
+  hw1:
     image: "node:12.15.0"
     ports:
       - "80:80"
@@ -14,3 +14,8 @@ services:
       - .:/home/node/app/:ro
       - ./node_modules/:/home/node/app/node_modules/:ro
     command: "npm run start-watch"
+
+networks:
+  default:
+    external:
+      name: csc667

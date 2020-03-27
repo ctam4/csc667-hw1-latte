@@ -4,8 +4,10 @@
 # required
 $ openssl req -nodes -new -x509 -keyout server.key -out server.cert -subj '/'
 $ npm install
-# you can use docker-compose instead of node / pm2 after executing above commands
-$ sudo docker-compose up
+# required for first time
+$ docker network create -d bridge csc667
+# you can use docker-compose instead of npm / pm2 after executing above commands
+$ docker-compose up
 ```
 
 If `docker-compose` fails to connect to the Docker daemon, ensure the Docker daemon is up (`sudo dockerd`).
